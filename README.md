@@ -1,4 +1,4 @@
-# AI Testing Engineer — Take-Home Submission
+# AI Testing Engineer Submission
 OCR & Document AI Evaluation for Sale Deed Documents (Kalpit Pvt Ltd)
 
 ## What this is
@@ -88,9 +88,9 @@ realistic" engine was preferred over hand-tuning for a top score.
                                          #  critical_fields.json for detail)
 ```
 
-## Live evaluation UI (optional, on top of the report)
+## Live evaluation UI
 
-For presenting this to someone without showing raw code, there's also a
+For presenting this on UI, there's also a
 small local web app with a real "Run" button per document:
 
 ```bash
