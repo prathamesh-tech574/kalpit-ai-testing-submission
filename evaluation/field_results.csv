@@ -1,0 +1,31 @@
+document,field,ground_truth_value,match_original_raw,match_original_normalized,match_degraded_raw,match_degraded_normalized
+docA,owner_names,"[""ब्रज किशोर रावत"", ""नीतेन्द्र सिंह रावत""]",True,True,True,True
+docA,father_husband_name,"[""नत्थाराम रावत"", ""नत्थाराम""]",True,True,True,True
+docA,buyer_names,"[""ज्ञानमंजरी रावत""]",True,True,True,True
+docA,survey_khasra_number,157,False,False,False,False
+docA,area,0.06,True,True,True,True
+docA,village,Sahida Kalan,True,True,True,True
+docA,tehsil,Badoni,True,True,True,True
+docA,district,Datia,True,True,True,True
+docA,registration_number,MP22IGR17182026A100034741,False,False,False,False
+docA,registration_date,09-01-2026,False,False,False,False
+docB,owner_names,"[""सुमनऊर्फविध्या पाल"", ""सोनीऊर्फसोनू पाल"", ""रविन्द्र पाल"", ""अंकित पाल""]",True,True,True,True
+docB,father_husband_name,"[""पहलवान पाल"", ""शैतान पाल"", ""शैतान पाल"", ""शैतान पाल""]",True,True,True,True
+docB,buyer_names,"[""बारेलालसिंह गुर्जर""]",True,True,True,True
+docB,survey_khasra_number,120-121-122-123,False,False,False,False
+docB,area,0.62,True,True,True,True
+docB,village,बडगोर,True,True,True,True
+docB,tehsil,बडौनी,True,True,True,True
+docB,district,दतिया,True,True,True,True
+docB,registration_number,MP09592020A1207397,False,False,False,False
+docB,registration_date,17/03/2020,False,False,False,False
+docC,owner_names,"[""जाकेश जाटव"", ""नीलम जाटव""]",True,True,True,True
+docC,father_husband_name,"[""जगदीश जाटव"", ""पत्नी सुरेन्द्र जाटव""]",True,True,True,True
+docC,buyer_names,"[""शिशुपाल जाटव"", ""विशाल जाटव""]",True,True,True,True
+docC,survey_khasra_number,180,False,False,False,False
+docC,area,0.45,True,True,True,True
+docC,village,Sahida Kalan,True,True,True,True
+docC,tehsil,Badoni,True,True,True,True
+docC,district,Datia,True,True,True,True
+docC,registration_number,MP22IGR17182025A100911603,False,False,False,False
+docC,registration_date,09-10-2025,False,False,False,False

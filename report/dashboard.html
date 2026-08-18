@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OCR Evaluation Dossier — Kalpit Pvt Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:        #1B2A4A;
+    --ink-deep:   #101a30;
+    --parchment:  #F7F3EA;
+    --paper:      #FFFFFF;
+    --seal-red:   #A23B2E;
+    --brass:      #B8934A;
+    --forest:     #3F6B4F;
+    --text:       #262220;
+    --text-soft:  #5b5750;
+    --line:       #E3DACB;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+  }
+  h1,h2,h3{
+    font-family:'Source Serif 4', serif;
+    margin:0;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  /* ---------- Header / Cover ---------- */
+  .cover{
+    background:
+      radial-gradient(circle at 85% -10%, rgba(184,147,74,0.18), transparent 45%),
+      linear-gradient(180deg, var(--ink-deep) 0%, var(--ink) 100%);
+    color:var(--parchment);
+    padding:64px 32px 56px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:6px solid var(--brass);
+  }
+  .cover::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 26px);
+    pointer-events:none;
+  }
+  .cover-inner{max-width:980px; margin:0 auto; position:relative;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-bottom:18px;
+  }
+  .cover h1{
+    color:var(--paper);
+    font-size:clamp(34px, 5vw, 54px);
+    font-weight:700;
+    max-width:760px;
+  }
+  .cover p.sub{
+    max-width:640px;
+    color:#cdd6e8;
+    font-size:17px;
+    margin-top:18px;
+  }
+  .cover-meta{
+    display:flex;
+    gap:36px;
+    margin-top:40px;
+    flex-wrap:wrap;
+  }
+  .cover-meta .item{border-left:2px solid var(--brass); padding-left:14px;}
+  .cover-meta .num{font-family:'Source Serif 4', serif; font-size:30px; font-weight:600; color:var(--paper);}
+  .cover-meta .lbl{font-size:12px; color:#9fb0cc; text-transform:uppercase; letter-spacing:0.08em; margin-top:2px;}
+
+  /* Seal badge */
+  .seal{
+    position:absolute;
+    top:44px;
+    right:32px;
+    width:132px;
+    height:132px;
+    border-radius:50%;
+    border:3px solid var(--brass);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transform:rotate(-8deg);
+    background:rgba(184,147,74,0.06);
+  }
+  .seal::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:1px solid var(--brass);
+    border-radius:50%;
+    opacity:0.6;
+  }
+  .seal-text{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--brass);
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    line-height:1.5;
+    text-transform:uppercase;
+  }
+  .seal-text strong{display:block; font-size:20px; font-family:'Source Serif 4', serif; color:var(--paper); letter-spacing:0; margin:2px 0;}
+
+  /* ---------- Sections ---------- */
+  main{max-width:980px; margin:0 auto; padding:56px 32px 100px;}
+  section{margin-bottom:64px;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:24px;
+    border-bottom:2px solid var(--line);
+    padding-bottom:14px;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--brass);
+    font-size:13px;
+  }
+  .section-head h2{font-size:24px;}
+  .section-desc{color:var(--text-soft); font-size:14.5px; margin-top:-14px; margin-bottom:26px; max-width:640px;}
+
+  /* Metric cards */
+  .metric-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+    gap:16px;
+  }
+  .metric-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:22px 20px;
+    position:relative;
+  }
+  .metric-card .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--text-soft);
+    margin-bottom:10px;
+  }
+  .metric-row{display:flex; align-items:baseline; gap:10px; margin-top:2px;}
+  .metric-val{font-family:'Source Serif 4', serif; font-size:32px; font-weight:600; color:var(--ink);}
+  .metric-arrow{color:var(--text-soft); font-size:14px;}
+  .metric-val.bad{color:var(--seal-red);}
+  .metric-sub{font-size:12.5px; color:var(--text-soft); margin-top:8px;}
+
+  /* Document cards */
+  .doc-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:18px;}
+  .doc-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-left:4px solid var(--ink);
+    border-radius:4px;
+    padding:22px;
+  }
+  .doc-card h3{font-size:18px; margin-bottom:4px;}
+  .doc-card .fname{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--text-soft); word-break:break-word; overflow-wrap:break-word; margin-bottom:14px;}
+  .doc-stat{display:flex; justify-content:space-between; font-size:13.5px; padding:6px 0; border-top:1px dashed var(--line);}
+  .doc-stat span:last-child{font-family:'IBM Plex Mono', monospace; font-weight:500;}
+
+  /* Exhibit / blank page finding */
+  .exhibit{
+    background:linear-gradient(180deg, #fff, #fdf9ee);
+    border:1.5px solid var(--brass);
+    border-radius:6px;
+    padding:32px;
+    position:relative;
+    overflow:hidden;
+  }
+  .exhibit-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-bottom:8px;
+  }
+  .exhibit h3{font-size:22px; margin-bottom:14px;}
+  .stamp-row{display:flex; gap:16px; flex-wrap:wrap; margin-top:20px;}
+  .stamp{
+    flex:1; min-width:220px;
+    border:2px solid;
+    border-radius:6px;
+    padding:16px 18px;
+    position:relative;
+  }
+  .stamp.fail{border-color:var(--seal-red); background:rgba(162,59,46,0.05);}
+  .stamp.pass{border-color:var(--forest); background:rgba(63,107,79,0.05);}
+  .stamp .verdict{
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .stamp.fail .verdict{color:var(--seal-red);}
+  .stamp.pass .verdict{color:var(--forest);}
+  .stamp .page-lbl{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--text-soft); margin-top:4px;}
+  .stamp .detail{font-size:13px; margin-top:8px; color:var(--text);}
+  .stamp .sample{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    background:rgba(0,0,0,0.04);
+    padding:8px 10px;
+    border-radius:4px;
+    margin-top:10px;
+    color:var(--text-soft);
+    word-break:break-word;
+  }
+
+  /* Field table */
+  table{width:100%; border-collapse:collapse; background:var(--paper); font-size:14px;}
+  thead th{
+    text-align:left;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--text-soft);
+    padding:10px 14px;
+    border-bottom:2px solid var(--ink);
+  }
+  tbody td{padding:11px 14px; border-bottom:1px solid var(--line);}
+  tbody tr:hover{background:rgba(184,147,74,0.05);}
+  .badge{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    font-weight:600;
+    padding:3px 9px;
+    border-radius:20px;
+  }
+  .badge.ok{background:rgba(63,107,79,0.12); color:var(--forest);}
+  .badge.no{background:rgba(162,59,46,0.12); color:var(--seal-red);}
+
+  /* Methodology footer */
+  .method{
+    background:var(--ink);
+    color:#cdd6e8;
+    border-radius:6px;
+    padding:28px 30px;
+    font-size:14px;
+  }
+  .method h3{color:var(--paper); font-size:17px; margin-bottom:12px;}
+  .method ul{margin:0; padding-left:20px;}
+  .method li{margin-bottom:8px;}
+  .method strong{color:var(--paper);}
+
+  footer{
+    text-align:center;
+    padding:36px;
+    font-size:12.5px;
+    color:var(--text-soft);
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  @media (max-width:640px){
+    .seal{display:none;}
+    .cover{padding:44px 20px 40px;}
+    main{padding:40px 18px 70px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="seal">
+    <div class="seal-text">Evaluation<br><strong>PASS</strong>with findings</div>
+  </div>
+  <div class="cover-inner">
+    <div class="eyebrow">OCR &amp; Document AI Evaluation — Internal Dossier</div>
+    <h1>Can this OCR system be trusted with land records?</h1>
+    <p class="sub">Three real Madhya Pradesh sale-deed documents, every page tested against
+      a hand-verified answer key, under both clean and deliberately degraded conditions.</p>
+    <div class="cover-meta">
+      <div class="item"><div class="num">3</div><div class="lbl">Documents</div></div>
+      <div class="item"><div class="num">86</div><div class="lbl">Pages Audited</div></div>
+      <div class="item"><div class="num">30</div><div class="lbl">Critical Fields Checked</div></div>
+      <div class="item"><div class="num">1</div><div class="lbl">Confirmed Failure Mode</div></div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <section>
+    <div class="section-head"><span class="section-num">01</span><h2>Text Recognition Accuracy</h2></div>
+    <p class="section-desc">Character Error Rate (CER) and Word Error Rate (WER) across the 82 text-bearing pages, comparing clean page images against the same pages deliberately blurred, tilted, and compressed.</p>
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="tag">Character Error Rate</div>
+        <div class="metric-row"><span class="metric-val">26.8%</span><span class="metric-arrow">&rarr;</span><span class="metric-val bad">48.1%</span></div>
+        <div class="metric-sub">clean image &rarr; degraded image</div>
+      </div>
+      <div class="metric-card">
+        <div class="tag">Word Error Rate</div>
+        <div class="metric-row"><span class="metric-val">42.7%</span><span class="metric-arrow">&rarr;</span><span class="metric-val bad">66.9%</span></div>
+        <div class="metric-sub">clean image &rarr; degraded image</div>
+      </div>
+      <div class="metric-card">
+        <div class="tag">Degradation Impact</div>
+        <div class="metric-row"><span class="metric-val bad">+21.3pp</span></div>
+        <div class="metric-sub">CER worsens by 21 points under poor scan quality</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">02</span><h2>Per-Document Breakdown</h2></div>
+    <p class="section-desc">Same metrics, split by source document — since a blended average can hide one document performing far worse than the others.</p>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <h3>Document A</h3>
+        <div class="fname">MP22IGR17182026A100034741.pdf · 27 pages</div>
+        <div class="doc-stat"><span>CER (clean)</span><span>19.0%</span></div>
+        <div class="doc-stat"><span>CER (degraded)</span><span>43.5%</span></div>
+        <div class="doc-stat"><span>WER (clean)</span><span>29.6%</span></div>
+        <div class="doc-stat"><span>WER (degraded)</span><span>59.2%</span></div>
+      </div>
+      <div class="doc-card">
+        <h3>Document B</h3>
+        <div class="fname">DocScanner_Apr_21_2026.pdf · 22 pages · genuine scan, no text layer</div>
+        <div class="doc-stat"><span>CER (clean)</span><span>39.2%</span></div>
+        <div class="doc-stat"><span>CER (degraded)</span><span>50.8%</span></div>
+        <div class="doc-stat"><span>WER (clean)</span><span>69.3%</span></div>
+        <div class="doc-stat"><span>WER (degraded)</span><span>77.4%</span></div>
+      </div>
+      <div class="doc-card">
+        <h3>Document C</h3>
+        <div class="fname">MP22IGR17182025A100911603.pdf · 37 pages</div>
+        <div class="doc-stat"><span>CER (clean)</span><span>26.1%</span></div>
+        <div class="doc-stat"><span>CER (degraded)</span><span>50.1%</span></div>
+        <div class="doc-stat"><span>WER (clean)</span><span>38.6%</span></div>
+        <div class="doc-stat"><span>WER (degraded)</span><span>67.1%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">03</span><h2>Exhibit A — The Blank Page Finding</h2></div>
+    <div class="exhibit">
+      <div class="exhibit-label">Most significant finding in this evaluation</div>
+      <h3>A blank page is not always read as blank.</h3>
+      <p style="margin:0; color:var(--text); font-size:14.5px; max-width:640px;">
+        Document B contains three pages that are genuinely blank — confirmed by manually inspecting the scanned image, not inferred. All three should produce empty OCR output. Two did. One didn't.
+      </p>
+      <div class="stamp-row">
+        <div class="stamp fail">
+          <div class="verdict">Fail — page 2</div>
+          <div class="detail">OCR fabricated ~30 words of meaningless text from scan noise, on both the clean and degraded versions of this blank page.</div>
+          <div class="sample">"3.०० 7&nbsp; Rene enc&nbsp; en&nbsp; Spe ow ०7०३० Be ee en..."</div>
+        </div>
+        <div class="stamp pass">
+          <div class="verdict">Pass — page 4</div>
+          <div class="detail">Correctly returned empty output on both versions.</div>
+        </div>
+        <div class="stamp pass">
+          <div class="verdict">Pass — page 6</div>
+          <div class="detail">Correctly returned empty output on both versions.</div>
+        </div>
+      </div>
+      <p style="margin-top:20px; margin-bottom:0; font-size:13.5px; color:var(--text-soft); max-width:660px;">
+        Why this matters: a pipeline that only checks "did OCR return something" would silently accept fabricated content from page 2 while correctly handling pages 4 and 6. Text-similarity metrics alone cannot catch a false-positive detection on blank input — a dedicated empty-input test is required.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">04</span><h2>Critical Field Accuracy</h2></div>
+    <p class="section-desc">The fields that carry legal and financial weight — checked with an exact match, not a fuzzy one, since a land registry cannot tolerate "close enough."</p>
+    <table>
+      <thead><tr><th>Field</th><th>Document A</th><th>Document B</th><th>Document C</th></tr></thead>
+      <tbody>
+        <tr><td>Owner Name(s)</td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td></tr>
+        <tr><td>Father / Husband Name</td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td></tr>
+        <tr><td>Buyer Name(s)</td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td></tr>
+        <tr><td>Survey / Khasra Number</td><td><span class="badge no">wrong</span></td><td><span class="badge no">wrong</span></td><td><span class="badge no">wrong</span></td></tr>
+        <tr><td>Area</td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td></tr>
+        <tr><td>Village</td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td></tr>
+        <tr><td>Tehsil</td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td></tr>
+        <tr><td>District</td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td><td><span class="badge ok">correct</span></td></tr>
+        <tr><td>Registration Number</td><td><span class="badge no">wrong</span></td><td><span class="badge no">wrong</span></td><td><span class="badge no">wrong</span></td></tr>
+        <tr><td>Registration Date</td><td><span class="badge no">wrong</span></td><td><span class="badge no">wrong</span></td><td><span class="badge no">wrong</span></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px; color:var(--text-soft); margin-top:14px;">
+      Overall: <strong style="color:var(--text);">70.0%</strong> of critical fields matched exactly, unchanged between clean and degraded images.
+      Numeric/ID fields — khasra numbers, registration numbers, dates — are the consistent weak point across all three documents, while names, areas, and locations are reliably correct. This is a materially more useful finding than a single blended accuracy number, since it identifies exactly where a downstream system would need a human safety net.
+    </p>
+  </section>
+
+  <section>
+    <div class="method">
+      <h3>Methodology, in brief</h3>
+      <ul>
+        <li><strong>Tool under test:</strong> Tesseract OCR 5.3.4 with Hindi + English language support — a free, open-source engine, chosen for reproducibility.</li>
+        <li><strong>Ground truth:</strong> every page hand-verified against the source; for the two born-digital PDFs, extracted text was cross-checked against the rendered image after a duplication bug was found and fixed; the scanned document was transcribed entirely by hand.</li>
+        <li><strong>Degradation:</strong> rotation, reduced contrast, blur, noise, and JPEG compression applied together to simulate a realistic poor-quality scan.</li>
+        <li><strong>Suspicious-token check:</strong> 937 OCR output tokens flagged as having no plausible relationship to the source text — reported as candidates for human review, not confirmed fabrications, since most trace back to ordinary character misreads rather than invented content.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>OCR EVALUATION DOSSIER · GENERATED FROM evaluate.py + build_report.py · SEE FULL DATA IN report/evaluation_report.xlsx</footer>
+
+</body>
+</html>

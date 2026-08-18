@@ -1,0 +1,153 @@
+{
+  "docA": {
+    "source_file": "MP22IGR17182026A100034741.pdf",
+    "pages_used": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    "fields": {
+      "owner_names": {
+        "value": ["ब्रज किशोर रावत", "नीतेन्द्र सिंह रावत"],
+        "note": "Two sellers/owners, identified on pages 3 and 4 respectively."
+      },
+      "father_husband_name": {
+        "value": ["नत्थाराम रावत", "नत्थाराम"],
+        "note": "Father's name for each of the two owners above, in the same order."
+      },
+      "buyer_names": {
+        "value": ["ज्ञानमंजरी रावत"],
+        "note": "Buyer, identified on page 5."
+      },
+      "survey_khasra_number": {
+        "value": "157",
+        "note": "Khasra 157 detailed on page 6; a second khasra (158) belonging to the same transaction is detailed on page 8."
+      },
+      "area": {
+        "value": "0.06",
+        "note": "Area in hectares for khasra 157, page 6."
+      },
+      "village": {
+        "value": "Sahida Kalan",
+        "note": "Village name (Latin script), page 6 property address block."
+      },
+      "tehsil": {
+        "value": "Badoni",
+        "note": "Tehsil name, page 6 property address block."
+      },
+      "district": {
+        "value": "Datia",
+        "note": "District name, page 6 property address block."
+      },
+      "registration_number": {
+        "value": "MP22IGR17182026A100034741",
+        "note": "Registration number appears on the final registration seal page, distinct from the e-stamp code shown on page 1."
+      },
+      "registration_date": {
+        "value": "09-01-2026",
+        "note": "E-stamping date/time shown on page 1."
+      }
+    }
+  },
+  "docB": {
+    "source_file": "DocScanner_Apr_21__2026_6-48_PM.pdf",
+    "pages_used": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+    "fields": {
+      "owner_names": {
+        "value": ["सुमनऊर्फविध्या पाल", "सोनीऊर्फसोनू पाल", "रविन्द्र पाल", "अंकित पाल"],
+        "note": "Four sellers/owners listed together on page 1 (two are minors represented by their mother as guardian)."
+      },
+      "father_husband_name": {
+        "value": ["पहलवान पाल", "शैतान पाल", "शैतान पाल", "शैतान पाल"],
+        "note": "Father/husband name for each of the four owners above, in the same order."
+      },
+      "buyer_names": {
+        "value": ["बारेलालसिंह गुर्जर"],
+        "note": "Buyer, page 3 (also repeated on page 5's stamp certificate)."
+      },
+      "survey_khasra_number": {
+        "value": "120-121-122-123",
+        "note": "Combined khasra numbers, page 13 annexure table."
+      },
+      "area": {
+        "value": "0.62",
+        "note": "Total area in hectares, page 13."
+      },
+      "village": {
+        "value": "बडगोर",
+        "note": "Village name, page 13 (also page 1)."
+      },
+      "tehsil": {
+        "value": "बडौनी",
+        "note": "Tehsil name, page 7/13."
+      },
+      "district": {
+        "value": "दतिया",
+        "note": "District name, page 1/13."
+      },
+      "registration_number": {
+        "value": "MP09592020A1207397",
+        "note": "Shown clearly on page 1 as 'ई पंजीकरण संख्या'."
+      },
+      "registration_date": {
+        "value": "17/03/2020",
+        "note": "Registration date, page 1."
+      }
+    },
+    "blank_pages_note": "This document has three genuinely blank pages, confirmed by visual inspection of the rendered page images: pages 2, 4, and 6. These are kept in the ground truth as empty text rather than omitted, since they are a deliberate part of full-document coverage and a useful robustness test (see the blank-page finding in the evaluation report)."
+  },
+  "docC": {
+    "source_file": "MP22IGR17182025A100911603__2_.pdf",
+    "pages_used": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37],
+    "fields": {
+      "owner_names": {
+        "value": ["जाकेश जाटव", "नीलम जाटव"],
+        "note": "Two sellers/owners, identified on pages 3 and 4 respectively."
+      },
+      "father_husband_name": {
+        "value": ["जगदीश जाटव", "पत्नी सुरेन्द्र जाटव"],
+        "note": "Father/husband name for each of the two owners above, in the same order."
+      },
+      "buyer_names": {
+        "value": ["शिशुपाल जाटव", "विशाल जाटव"],
+        "note": "Two buyers, identified on pages 3 and 5 respectively."
+      },
+      "survey_khasra_number": {
+        "value": "180",
+        "note": "Khasra 180 detailed on page 6; four further khasras (54/1, 54/3, 62, 61/1) belonging to the same transaction are detailed on later pages."
+      },
+      "area": {
+        "value": "0.45",
+        "note": "Total plot area in hectares for khasra 180, page 6."
+      },
+      "village": {
+        "value": "Sahida Kalan",
+        "note": "Village name (Latin script), page 6 property address block."
+      },
+      "tehsil": {
+        "value": "Badoni",
+        "note": "Tehsil name, page 6 property address block."
+      },
+      "district": {
+        "value": "Datia",
+        "note": "District name, page 6 property address block."
+      },
+      "registration_number": {
+        "value": "MP22IGR17182025A100911603",
+        "note": "Registration number appears on the final registration seal page, distinct from the e-stamp code shown on page 1."
+      },
+      "registration_date": {
+        "value": "09-10-2025",
+        "note": "E-stamping date/time shown on page 1."
+      }
+    }
+  },
+  "methodology_notes": [
+    "All 3 documents are Madhya Pradesh e-registration 'Panjiyan Praman Patra' sale deeds (हस्तांतरण-पत्र). docA has 27 pages, docB has 22 pages, docC has 37 pages -- every page of all 3 documents is transcribed in this ground truth (full-document coverage).",
+    "docA and docC are born-digital PDFs (Devanagari CID TrueType font embedded) with a genuine text layer. Text was extracted using pdftotext -layout, which preserves visual top-to-bottom reading order (the default and -raw modes were tested and found to follow the PDF's internal content-stream order instead, which does not match the visual layout). A cleaning pass removes duplicate paragraphs and repeating line-cycles that these PDFs store internally multiple times (2 to 42 repeats observed) even though the content renders only once visually -- confirmed by manually inspecting rendered page images at multiple points.",
+    "docB is a true photographed/scanned document (pdffonts shows zero embedded fonts) -- ground truth for all 22 pages was built by manually viewing and transcribing each rasterized page image, since no text layer exists to lean on.",
+    "Complex multi-column tables (e.g. docA/docC page 15, the khasra ownership-share tables) are transcribed completely and accurately in content, but plain-text extraction tools do not reliably preserve left-to-right, top-to-bottom reading order for table cells. This is a known, general limitation of text-based PDF extraction for tables, distinct from the duplication issue above, and does not affect the presence or correctness of any individual value.",
+    "Devanagari script has visually similar conjunct characters (e.g. ब/व, ल/ला, ट/ड) which are a common OCR confusion source; called out in error analysis.",
+    "No handwriting is present in docA or docC (fully typeset/printed forms). docB (the scanned document) contains genuine handwriting -- handwritten signatures from both parties and both witnesses appear on page 17, and thumbprints/photos appear on pages 14, 16, 18.",
+    "There are no stamps/seals overlapping text in any of the 3 documents; the main degradation risk is the background watermark/seal graphic underlying the Hindi text, and the QR/photo/fingerprint blocks that OCR should not treat as text.",
+    "docB has a repeated background watermark text ('DEPARTMENT OF REGISTRATION AND STAMPS...') visible through several pages even before any artificial degradation was applied -- a realistic 'noisy background' case.",
+    "Field schema note: owner_names and buyer_names are arrays rather than fixed single/second fields, since the number of parties on a sale deed varies document to document (docB has 4 owners, docA has 2, for example) and a fixed schema would not scale to documents with more parties.",
+    "Field schema note: village, tehsil, and district are kept as three separate atomic fields rather than one combined field, so that field-level evaluation can identify exactly which administrative unit (if any) an OCR error affects."
+  ]
+}
